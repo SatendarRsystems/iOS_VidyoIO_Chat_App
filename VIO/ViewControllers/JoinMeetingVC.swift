@@ -50,6 +50,9 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    // MARK: - Actions
+    
     @IBAction func clickedBtnJoinMeeting(_ sender: Any) {
         
 //        os_log("-----------%d", log: OSLog.default, type: .debug, (self.textFieldUserName.text?.isEmpty)!)

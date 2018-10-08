@@ -26,6 +26,7 @@
 		2DDAADDD215A3F7500175097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DDAADDC215A3F7500175097 /* Assets.xcassets */; };
 		2DDAADE0215A3F7500175097 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDAADDE215A3F7500175097 /* LaunchScreen.storyboard */; };
 		2DDAADF0215A43C900175097 /* JoinMeetingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDAADEF215A43C900175097 /* JoinMeetingVC.swift */; };
+		2DDB1B9E21677C36002250CC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDB1B9D21677C36002250CC /* Constants.swift */; };
 		2DE060B6215E132900B8252E /* VidyoClientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE060B5215E132900B8252E /* VidyoClientIOS.framework */; };
 		2DE060B7215E132900B8252E /* VidyoClientIOS.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE060B5215E132900B8252E /* VidyoClientIOS.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		2DE060BC215E2F2400B8252E /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE060BB215E2F2400B8252E /* AudioToolbox.framework */; };
@@ -75,6 +76,7 @@
 		2DDAADDF215A3F7500175097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		2DDAADE1215A3F7500175097 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2DDAADEF215A43C900175097 /* JoinMeetingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JoinMeetingVC.swift; sourceTree = "<group>"; };
+		2DDB1B9D21677C36002250CC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		2DE060B5215E132900B8252E /* VidyoClientIOS.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VidyoClientIOS.framework; sourceTree = "<group>"; };
 		2DE060B9215E13FD00B8252E /* VIO.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = VIO.entitlements; sourceTree = "<group>"; };
 		2DE060BA215E14C000B8252E /* VIO-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "VIO-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 				2DDAADEE215A434D00175097 /* SDKs */,
 				2DA40A63215B55AC0093B97C /* Utile.swift */,
 				2D74D6D221625F91006A1F51 /* BaseVC.swift */,
+				2DDB1B9D21677C36002250CC /* Constants.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -395,6 +398,7 @@
 				2D74D6CD21621D66006A1F51 /* ChatboxMemberCell.swift in Sources */,
 				2D04DAA3215CE550002E1FC0 /* MyError.swift in Sources */,
 				2DDAADD3215A3F6A00175097 /* AppDelegate.swift in Sources */,
+				2DDB1B9E21677C36002250CC /* Constants.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

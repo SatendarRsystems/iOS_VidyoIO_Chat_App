@@ -11,12 +11,13 @@ import os.log
 
 class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCConnectorIRegisterParticipantEventListener, VCConnectorIRegisterMessageEventListener {
     
-    var arrParticipant: [VCParticipant] = []
+    private var arrParticipant: [VCParticipant] = []
     
     @IBOutlet weak var lblMeetingID: UILabel!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblTotalMember: UILabel!
     @IBOutlet weak var tblViewObj: UITableView!
+    
 
     
     override func viewDidLoad() {
@@ -39,7 +40,7 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
 
-/*
+
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -47,11 +48,11 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-//        if let chatVC = segue.destination as? ChatVC {
-//            chatVC.parentVC = self
-//        }
+        if let chatVC = segue.destination as? ChatVC {
+            chatVC.arrParticipant = arrParticipant
+        }
     }
-*/
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -80,6 +81,10 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     // MARK: - UITableViewDelegate
     
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 70
+    }
+    
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return arrParticipant.count
     }
@@ -92,6 +97,7 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
             cell.lblParticipantName.text = participantNmae
             let indexStartOfText = participantNmae.index(participantNmae.startIndex, offsetBy: 0)
             cell.lblInitialLetter.text = String(participantNmae[...indexStartOfText]).uppercased()
+            cell.lblInitialLetter.backgroundColor = Constants.participantColors[indexPath.row]
         }
         
         return cell

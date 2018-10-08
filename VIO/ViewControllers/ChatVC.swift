@@ -13,6 +13,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
     
     @IBOutlet weak var tblViewObj: UITableView!
     @IBOutlet weak var txtViewSend: UITextView!
+    var arrParticipant: [VCParticipant] = []
 //    var parentVC:ParticipantsVC? = nil
 //    var arrMessages: [ChatInfo] = []
 
@@ -99,6 +100,12 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
             memberCell.lblMemberIntialLetter.text = String(chatInfo.participantName[...indexStartOfText]).uppercased()
             memberCell.lblMemberName.text = chatInfo.participantName
             memberCell.lblMemberMsg.text = chatInfo.message
+            
+            if let index = chatInfo.participantIndex {
+                memberCell.lblMemberIntialLetter.backgroundColor = Constants.participantColors[index]
+            } else {
+                memberCell.lblMemberIntialLetter.backgroundColor = UIColor.lightGray
+            }
             cell = memberCell
             
         } else {
@@ -123,6 +130,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
             
             if (!msg.isEmpty) {
                 let chatInfo = ChatInfo(participantName: participant.getName(), chatMessage: msg, participantType: false)
+                chatInfo.participantIndex = self.arrParticipant.index(of: participant)
                 VidyoManager.arrChatMessages.append(chatInfo)
                 self.tblViewObj.reloadData()
                 self.tblViewObj.scrollToRow(at: IndexPath(row: VidyoManager.arrChatMessages.count - 1, section: 0), at: .bottom, animated: true)

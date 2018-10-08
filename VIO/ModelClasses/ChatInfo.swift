@@ -12,10 +12,11 @@ class ChatInfo {
     public var participantName : String
     public var message : String
     public var isLoginUser : Bool
+    public var participantIndex : Int?
     
     init(participantName: String, chatMessage: String, participantType: Bool) {
         self.participantName = participantName
         self.message = chatMessage
-        self.isLoginUser = participantType        
+        self.isLoginUser = participantType
     }
 }
