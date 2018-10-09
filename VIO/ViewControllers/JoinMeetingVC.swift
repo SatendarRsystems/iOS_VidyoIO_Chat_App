@@ -10,19 +10,17 @@ import UIKit
 import os.log
 
 class JoinMeetingVC: UIViewController, VCConnectorIConnect {
-    @IBOutlet weak var videoView: UIView!
     @IBOutlet weak var textFieldUserName: UITextField!
     @IBOutlet weak var textFieldMeetingID: UITextField!
     @IBOutlet weak var constLogoTop: NSLayoutConstraint!
+    
+//    var videoVC: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.textFieldUserName.layer.borderColor = #colorLiteral(red: 0.3960784314, green: 0.3960784314, blue: 0.3960784314, alpha: 1)
-        self.textFieldMeetingID.layer.borderColor = #colorLiteral(red: 0.3960784314, green: 0.3960784314, blue: 0.3960784314, alpha: 1)
-        self.videoView.isHidden = true
-        VCConnectorPkg.vcInitialize()
+        initView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -51,10 +49,21 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     }
     */
     
+    func initView() {
+        self.textFieldUserName.layer.borderColor = #colorLiteral(red: 0.3960784314, green: 0.3960784314, blue: 0.3960784314, alpha: 1)
+        self.textFieldMeetingID.layer.borderColor = #colorLiteral(red: 0.3960784314, green: 0.3960784314, blue: 0.3960784314, alpha: 1)
+        VCConnectorPkg.vcInitialize()
+        
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        VidyoManager.videoVC = storyboard.instantiateViewController(withIdentifier: "VideoVC") as! VideoVC
+//        os_log("videoVC-----------%@", log: OSLog.default, type: .debug, VidyoManager.videoVC)
+//        os_log("viewVideo-----------%@", log: OSLog.default, type: .debug, VidyoManager.videoVC.view.viewWithTag(101)!)
+
+    }
+    
     // MARK: - Actions
     
     @IBAction func clickedBtnJoinMeeting(_ sender: Any) {
-        
 //        os_log("-----------%d", log: OSLog.default, type: .debug, (self.textFieldUserName.text?.isEmpty)!)
         
         if (self.textFieldUserName.text?.isEmpty)! {
@@ -81,12 +90,12 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
             let accessTokenBase = AccessTokenBase.init(dictionary: resJson.dictionaryObject! as NSDictionary)
             Utile.saveAccessToken(accessTokenBase?.accessToken)
             Utile.showProgressIndicator()
-            VidyoManager.sharedInstance.initVidyoConnector(videoView: self.videoView)
+            VidyoManager.sharedInstance.initVidyoConnector()
             VidyoManager.sharedInstance.refreshUI()
             VidyoManager.sharedInstance.connectMeeting(self)
-            VidyoManager.sharedInstance.switchOffMic(switchValue: true)
-            VidyoManager.sharedInstance.switchOffSpeaker(switchValue: true)
-            VidyoManager.sharedInstance.switchOffCamera(switchValue: true)
+            VidyoManager.sharedInstance.switchOffMic(true)
+            VidyoManager.sharedInstance.switchOffSpeaker(true)
+            VidyoManager.sharedInstance.switchOffCamera(true)
 
         }) {
             (error) -> Void in
@@ -104,7 +113,6 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
             Utile.hideProgressIndicator()            
             let appDelegate = UIApplication.shared.delegate as! AppDelegate
             appDelegate.loginToHomeVC()
-            
         }
     }
     

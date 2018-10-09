@@ -13,7 +13,7 @@ class Constants {
     // MARK: - ParticipantVC
     static let participantColors = [#colorLiteral(red: 0.537254902, green: 0.8156862745, blue: 0.9921568627, alpha: 1), #colorLiteral(red: 0.6039215686, green: 0.537254902, blue: 0.9921568627, alpha: 1), #colorLiteral(red: 0.8274509804, green: 0.5411764706, blue: 0.9960784314, alpha: 1), #colorLiteral(red: 0.9921568627, green: 0.5411764706, blue: 0.9058823529, alpha: 1), #colorLiteral(red: 0.5490196078, green: 0.8235294118, blue: 0.5411764706, alpha: 1), #colorLiteral(red: 0.737254902, green: 0.8156862745, blue: 0.3098039216, alpha: 1), #colorLiteral(red: 0.6039215686, green: 0.5333333333, blue: 0.9960784314, alpha: 1), #colorLiteral(red: 0.9137254902, green: 0.7137254902, blue: 0.3254901961, alpha: 1), #colorLiteral(red: 0.9921568627, green: 0.537254902, blue: 0.5411764706, alpha: 1)]
     
-    struct headerHeight {
-        static let value = 112.0
+    struct textView {
+        static let placeholderText = "Type a message"
     }
 }

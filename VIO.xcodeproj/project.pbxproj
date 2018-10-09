@@ -17,6 +17,7 @@
 		2D74D6D121625BFF006A1F51 /* VidyoManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D74D6D021625BFF006A1F51 /* VidyoManager.swift */; };
 		2D74D6D321625F91006A1F51 /* BaseVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D74D6D221625F91006A1F51 /* BaseVC.swift */; };
 		2D9286C021649A3100C91884 /* ChatInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D9286BF21649A3100C91884 /* ChatInfo.swift */; };
+		2D95CA44216B7FBF001EE58F /* VideoVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D95CA43216B7FBF001EE58F /* VideoVC.swift */; };
 		2DA40A64215B55AC0093B97C /* Utile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA40A63215B55AC0093B97C /* Utile.swift */; };
 		2DA40A66215B73C30093B97C /* ParticipantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA40A65215B73C30093B97C /* ParticipantsVC.swift */; };
 		2DDAADD3215A3F6A00175097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDAADD2215A3F6A00175097 /* AppDelegate.swift */; };
@@ -65,6 +66,7 @@
 		2D74D6D021625BFF006A1F51 /* VidyoManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VidyoManager.swift; sourceTree = "<group>"; };
 		2D74D6D221625F91006A1F51 /* BaseVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseVC.swift; sourceTree = "<group>"; };
 		2D9286BF21649A3100C91884 /* ChatInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatInfo.swift; sourceTree = "<group>"; };
+		2D95CA43216B7FBF001EE58F /* VideoVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoVC.swift; sourceTree = "<group>"; };
 		2DA40A63215B55AC0093B97C /* Utile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utile.swift; sourceTree = "<group>"; };
 		2DA40A65215B73C30093B97C /* ParticipantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsVC.swift; sourceTree = "<group>"; };
 		2DDAADCF215A3F6A00175097 /* VIO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIO.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -172,6 +174,7 @@
 				2DDAADEF215A43C900175097 /* JoinMeetingVC.swift */,
 				2DA40A65215B73C30093B97C /* ParticipantsVC.swift */,
 				2DEF84282161FD5900CE0EE5 /* ChatVC.swift */,
+				2D95CA43216B7FBF001EE58F /* VideoVC.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -394,6 +397,7 @@
 				2D74D6CF216229E1006A1F51 /* ChatboxUserCell.swift in Sources */,
 				2DDAADDB215A3F6A00175097 /* VIO.xcdatamodeld in Sources */,
 				2D74D6D321625F91006A1F51 /* BaseVC.swift in Sources */,
+				2D95CA44216B7FBF001EE58F /* VideoVC.swift in Sources */,
 				2D04DAA1215CDBA2002E1FC0 /* AFWrapper.swift in Sources */,
 				2D74D6CD21621D66006A1F51 /* ChatboxMemberCell.swift in Sources */,
 				2D04DAA3215CE550002E1FC0 /* MyError.swift in Sources */,

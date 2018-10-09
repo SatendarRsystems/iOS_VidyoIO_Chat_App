@@ -9,26 +9,18 @@
 import UIKit
 import os.log
 
-class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCConnectorIRegisterMessageEventListener {
+class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCConnectorIRegisterMessageEventListener, UITextViewDelegate {
     
     @IBOutlet weak var tblViewObj: UITableView!
     @IBOutlet weak var txtViewSend: UITextView!
-    var arrParticipant: [VCParticipant] = []
-//    var parentVC:ParticipantsVC? = nil
+//    var parentVC: ParticipantsVC!
+    
+//    var arrParticipant: [VCParticipant] = []
 //    var arrMessages: [ChatInfo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-//        parentVC?.connector?.registerMessageEventListener(self)
-//        os_log("connector-------%@", log: .default, type: .default, (parentVC?.connector)!)
-//        parentVC?.connector?.registerMessageEventListener(self)
-        
-        tblViewObj.rowHeight = UITableViewAutomaticDimension
-        tblViewObj.estimatedRowHeight = 140
-
-        
+        initView()
     }
 
     override func didReceiveMemoryWarning() {
@@ -55,6 +47,20 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
         }
     }
     
+    func initView() {
+        // Do any additional setup after loading the view.
+        //        parentVC?.connector?.registerMessageEventListener(self)
+        //        os_log("connector-------%@", log: .default, type: .default, (parentVC?.connector)!)
+        //        parentVC?.connector?.registerMessageEventListener(self)
+        
+        tblViewObj.rowHeight = UITableViewAutomaticDimension
+        tblViewObj.estimatedRowHeight = 140
+        
+        txtViewSend.text = Constants.textView.placeholderText
+        txtViewSend.textColor = UIColor.lightGray
+        txtViewSend.selectedTextRange = txtViewSend.textRange(from: txtViewSend.beginningOfDocument, to: txtViewSend.beginningOfDocument)
+    }
+    
     // MARK: - Actions
     
     @IBAction func clickedBtnGroup(_ sender: Any) {
@@ -62,6 +68,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
     }
     
     @IBAction func clickedBtnVideo(_ sender: Any) {
+        self.navigationController?.pushViewController(VidyoManager.videoVC, animated: true)
     }
     
     @IBAction func clickedBtnExit(_ sender: Any) {
@@ -103,8 +110,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
             
             if let index = chatInfo.participantIndex {
                 memberCell.lblMemberIntialLetter.backgroundColor = Constants.participantColors[index]
+                memberCell.lblMemberName.textColor = Constants.participantColors[index]
             } else {
                 memberCell.lblMemberIntialLetter.backgroundColor = UIColor.lightGray
+                memberCell.lblMemberName.textColor = UIColor.lightGray
             }
             cell = memberCell
             
@@ -130,10 +139,57 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
             
             if (!msg.isEmpty) {
                 let chatInfo = ChatInfo(participantName: participant.getName(), chatMessage: msg, participantType: false)
-                chatInfo.participantIndex = self.arrParticipant.index(of: participant)
+                chatInfo.participantIndex = VidyoManager.arrParticipants.index(of: participant)
                 VidyoManager.arrChatMessages.append(chatInfo)
                 self.tblViewObj.reloadData()
                 self.tblViewObj.scrollToRow(at: IndexPath(row: VidyoManager.arrChatMessages.count - 1, section: 0), at: .bottom, animated: true)
+            }
+        }
+    }
+    
+    // MARK: - UITextViewDelegate
+    
+    func textView(_ textView: UITextView, shouldChangeTextIn range: NSRange, replacementText text: String) -> Bool {
+        
+        // Combine the textView text and the replacement text to
+        // create the updated text string
+        let currentText:String = textView.text
+        let updatedText = (currentText as NSString).replacingCharacters(in: range, with: text)
+        
+        // If updated text view will be empty, add the placeholder
+        // and set the cursor to the beginning of the text view
+        if updatedText.isEmpty {
+            
+            textView.text = "Placeholder"
+            textView.textColor = UIColor.lightGray
+            
+            textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
+        }
+            
+            // Else if the text view's placeholder is showing and the
+            // length of the replacement string is greater than 0, set
+            // the text color to black then set its text to the
+            // replacement string
+        else if textView.textColor == UIColor.lightGray && !text.isEmpty {
+            textView.textColor = UIColor.black
+            textView.text = text
+        }
+            
+            // For every other case, the text should change with the usual
+            // behavior...
+        else {
+            return true
+        }
+        
+        // ...otherwise return false since the updates have already
+        // been made
+        return false
+    }
+    
+    func textViewDidChangeSelection(_ textView: UITextView) {
+        if self.view.window != nil {
+            if textView.textColor == UIColor.lightGray {
+                textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
             }
         }
     }

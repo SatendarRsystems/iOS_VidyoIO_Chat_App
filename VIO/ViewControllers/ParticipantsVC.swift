@@ -11,36 +11,27 @@ import os.log
 
 class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCConnectorIRegisterParticipantEventListener, VCConnectorIRegisterMessageEventListener {
     
-    private var arrParticipant: [VCParticipant] = []
-    
     @IBOutlet weak var lblMeetingID: UILabel!
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblTotalMember: UILabel!
     @IBOutlet weak var tblViewObj: UITableView!
     
-
+//    var arrParticipant: [VCParticipant] = []
+//    var videoVC: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.lblMeetingID.text = Utile.getMeetingID()
-        self.lblUserName.text = Utile.getUserName()
-        
-//        self.initVidyoConnector()
-//        VidyoManager.connector?.registerParticipantEventListener(self)
-//         VidyoManager.connector?.registerMessageEventListener(self)
-//        self.refreshUI()
-//        self.connectMeeting(self)
+        initView()
     }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-    
 
-
+/*
     // MARK: - Navigation
 
     // In a storyboard-based application, you will often want to do a little preparation before navigation
@@ -48,11 +39,11 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         // Get the new view controller using segue.destinationViewController.
         // Pass the selected object to the new view controller.
         
-        if let chatVC = segue.destination as? ChatVC {
-            chatVC.arrParticipant = arrParticipant
-        }
+//        if let chatVC = segue.destination as? ChatVC {
+//            chatVC.parentVC = self
+//        }
     }
-
+*/
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -64,15 +55,28 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.viewDidAppear(animated)
         VidyoManager.connector?.registerParticipantEventListener(self)
         VidyoManager.connector?.registerMessageEventListener(self)
+    }
+    
+    func initView() {
+        self.lblMeetingID.text = Utile.getMeetingID()
+        self.lblUserName.text = Utile.getUserName()
         
+        //        self.initVidyoConnector()
+        //        VidyoManager.connector?.registerParticipantEventListener(self)
+        //         VidyoManager.connector?.registerMessageEventListener(self)
+        //        self.refreshUI()
+        //        self.connectMeeting(self)
     }
     
     // MARK: - Actions
     
     @IBAction func clickedBtnChat(_ sender: Any) {
     }
+    
     @IBAction func clickedBtnVideo(_ sender: Any) {
+        self.navigationController?.pushViewController(VidyoManager.videoVC, animated: true)
     }
+    
     @IBAction func clickedBtnExit(_ sender: Any) {
         VidyoManager.sharedInstance.disableMeeting()
         let appDelegate = UIApplication.shared.delegate as! AppDelegate
@@ -86,14 +90,14 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return arrParticipant.count
+        return VidyoManager.arrParticipants.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "participantsCell", for: indexPath) as! ParticipantsCell
         
         // Configure the cell...
-        if let participantNmae = arrParticipant[indexPath.row].getName() {
+        if let participantNmae = VidyoManager.arrParticipants[indexPath.row].getName() {
             cell.lblParticipantName.text = participantNmae
             let indexStartOfText = participantNmae.index(participantNmae.startIndex, offsetBy: 0)
             cell.lblInitialLetter.text = String(participantNmae[...indexStartOfText]).uppercased()
@@ -112,21 +116,19 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func onParticipantLeft(_ participant: VCParticipant!) {
-        
     }
     
     func onDynamicParticipantChanged(_ participants: NSMutableArray!) {
 //        os_log("participants-------%@", log: .default, type: .default, participants)
-        arrParticipant = participants as! [VCParticipant]
+        VidyoManager.arrParticipants = participants as! [VCParticipant]
         
         DispatchQueue.main.async {
-            self.lblTotalMember.text = String(self.arrParticipant.count+1)
+            self.lblTotalMember.text = String(VidyoManager.arrParticipants.count+1)
             self.tblViewObj.reloadData()
         }
     }
     
-    func onLoudestParticipantChanged(_ participant: VCParticipant!, audioOnly: Bool) {
-        
+    func onLoudestParticipantChanged(_ participant: VCParticipant!, audioOnly: Bool) {        
     }
     
     // MARK: - VCConnectorIRegisterMessageEventListener

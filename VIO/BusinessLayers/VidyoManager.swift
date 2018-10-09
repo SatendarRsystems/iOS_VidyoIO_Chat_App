@@ -11,15 +11,20 @@ import UIKit
 class VidyoManager: NSObject {
     static let sharedInstance = VidyoManager()
     static var connector:VCConnector?
-    static var vidyoView:UIView?
+    let videoView: UIView!
+    static var videoVC:VideoVC!    
     static var arrChatMessages: [ChatInfo] = []
+    static var arrParticipants: [VCParticipant] = []
     
+    override init() {
+        self.videoView = VidyoManager.videoVC.view.viewWithTag(101)
+    }
     
     // MARK: - VidyoWrapper
     
-    func initVidyoConnector(videoView: UIView) {
-        VidyoManager.vidyoView = videoView
-        VidyoManager.connector = VCConnector(UnsafeMutableRawPointer(&VidyoManager.vidyoView),
+    func initVidyoConnector() {
+        var videoViewMutable = self.videoView
+        VidyoManager.connector = VCConnector(UnsafeMutableRawPointer(&videoViewMutable),
                                 viewStyle: .default,
                                 remoteParticipants: 4,
                                 logFileFilter: UnsafePointer("info@VidyoClient info@VidyoConnector warning"),
@@ -28,12 +33,13 @@ class VidyoManager: NSObject {
     }
     
     @objc func refreshUI() {
+        var videoViewMutable = self.videoView!
         DispatchQueue.main.async {
-            VidyoManager.connector?.showView(at: UnsafeMutableRawPointer(&VidyoManager.vidyoView),
+            VidyoManager.connector?.showView(at: UnsafeMutableRawPointer(&videoViewMutable),
                                      x: 0,
                                      y: 0,
-                                     width: UInt32(VidyoManager.vidyoView!.frame.size.width),
-                                     height: UInt32((VidyoManager.vidyoView?.frame.size.height)!))
+                                     width: UInt32(videoViewMutable.frame.size.width),
+                                     height: UInt32(videoViewMutable.frame.size.height))
         }
     }
     
@@ -61,16 +67,16 @@ class VidyoManager: NSObject {
         }
     }
     
-    func switchOffMic(switchValue: Bool) {
+    func switchOffMic(_ switchValue: Bool) {
         VidyoManager.connector?.setMicrophonePrivacy(switchValue)
 
     }
     
-    func switchOffSpeaker(switchValue: Bool) {
+    func switchOffSpeaker(_ switchValue: Bool) {
         VidyoManager.connector?.setSpeakerPrivacy(switchValue)
     }
     
-    func switchOffCamera(switchValue: Bool) {
+    func switchOffCamera(_ switchValue: Bool) {
         VidyoManager.connector?.setCameraPrivacy(switchValue)
     }
 }
