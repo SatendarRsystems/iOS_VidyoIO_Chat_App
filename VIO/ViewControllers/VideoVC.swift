@@ -48,14 +48,43 @@ class VideoVC: UIViewController {
         VidyoManager.sharedInstance.switchOffMic(true)
         VidyoManager.sharedInstance.switchOffSpeaker(true)
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        VidyoManager.sharedInstance.refreshUI()
+
+    }
         
     @IBAction func clickedBtnChat(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBAction func clickedBtnCameraSwitch(_ sender: Any) {
+    @IBAction func clickedBtnCameraSwitch(_ sender: UIButton) {        
+        VidyoManager.sharedInstance.switchCamera()
     }
-    @IBAction func clickedBtnCamera(_ sender: Any) {
+    @IBAction func clickedBtnCamera(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            sender.setImage(#imageLiteral(resourceName: "CameraOff"), for: .normal)
+            VidyoManager.sharedInstance.switchOffCamera(true)
+//            self.viewVideo.isHidden = true
+            
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "CameraOn"), for: .normal)
+            VidyoManager.sharedInstance.switchOffCamera(false)
+//            self.viewVideo.isHidden = false
+        }
     }
-    @IBAction func clickedBtnMic(_ sender: Any) {
+    @IBAction func clickedBtnMic(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        
+        if sender.isSelected {
+            sender.setImage(#imageLiteral(resourceName: "micOff"), for: .normal)
+            VidyoManager.sharedInstance.switchOffMic(true)
+            
+        } else {
+            sender.setImage(#imageLiteral(resourceName: "micOn"), for: .normal)
+            VidyoManager.sharedInstance.switchOffMic(false)
+        }
     }
 }

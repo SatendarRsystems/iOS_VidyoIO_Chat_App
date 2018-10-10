@@ -79,4 +79,8 @@ class VidyoManager: NSObject {
     func switchOffCamera(_ switchValue: Bool) {
         VidyoManager.connector?.setCameraPrivacy(switchValue)
     }
+    
+    func switchCamera() {
+         VidyoManager.connector?.cycleCamera()
+    }
 }
