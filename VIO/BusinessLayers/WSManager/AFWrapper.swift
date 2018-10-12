@@ -12,7 +12,8 @@ import Alamofire
 import SwiftyJSON
 
 class AFWrapper {
-    static let baseUrl = "http://vod-demoserver.india.rsystems.com:7000"
+    static let baseUrl = "https://us-central1-vidyo-1.cloudfunctions.net"
+//    static let baseUrl = "http://vod-demoserver.india.rsystems.com:7000"
     
     class func getoAuthHeaders() -> HTTPHeaders {
         
@@ -50,8 +51,8 @@ class AFWrapper {
     
     class func requestGetAccessToken(params : [String : AnyObject]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
         
+        let requestUrl = String.init(format: "/authToken?username=%@", Utile.getUserName()!)
 //        let requestUrl = String.init(format: "/getAccessToken?username=%@", Utile.getUserName()!)
-        let requestUrl = String.init(format: "/getAccessToken?username=%@", Utile.getUserName()!)
 
         let resultStr = baseUrl + requestUrl
         
