@@ -32,6 +32,8 @@ class AFWrapper {
         
         Utile.showProgressIndicator()
         
+        print("strURL: \(strURL)")
+        
         Alamofire.request(strURL, method: .get, parameters: nil, encoding: JSONEncoding.default, headers: oauthHeaders).validate().responseJSON { (responseObject) -> Void in
             
             Utile.hideProgressIndicator()
