@@ -13,6 +13,7 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     @IBOutlet weak var textFieldUserName: UITextField!
     @IBOutlet weak var textFieldMeetingID: UITextField!
     @IBOutlet weak var constLogoTop: NSLayoutConstraint!
+    @IBOutlet weak var btnJoinMeeting: UIButton!
     
 //    var videoVC: UIViewController!
     
@@ -66,14 +67,22 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     @IBAction func clickedBtnJoinMeeting(_ sender: Any) {
 //        os_log("-----------%d", log: OSLog.default, type: .debug, (self.textFieldUserName.text?.isEmpty)!)
         
-        if (self.textFieldUserName.text?.isEmpty)! {
-            alert(message: "Please enter username.")
-        } else if (self.textFieldMeetingID.text?.isEmpty)! {
-            alert(message: "Please enter meeting ID.")
+        let arrUserName = self.textFieldUserName.text?.components(separatedBy: " ")
+        
+        if ((arrUserName?.count)! > 1) {
+            alert(message: "No space allowed in username.")
         } else {
             Utile.saveUserName(self.textFieldUserName.text?.trimmingCharacters(in: .whitespaces))
             Utile.saveMeetingID(self.textFieldMeetingID.text?.trimmingCharacters(in: .whitespaces))
             self.requesGetAccessTokenData()
+        }
+    }
+    
+    @IBAction func editingChanged(_ sender: Any) {
+        if (!(textFieldUserName.text?.isEmpty)! && !(textFieldMeetingID.text?.isEmpty)!) {
+            btnJoinMeeting.isEnabled = true
+        } else {
+            btnJoinMeeting.isEnabled = false
         }
     }
     

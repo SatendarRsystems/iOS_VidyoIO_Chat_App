@@ -67,6 +67,9 @@
                                                                 <integer key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="editingChanged:" destination="g6j-2s-YfD" eventType="editingChanged" id="sXP-r7-QBT"/>
+                                                        </connections>
                                                     </textField>
                                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Meeting ID" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zpI-sM-3w7">
                                                         <rect key="frame" x="0.0" y="70" width="315" height="50"/>
@@ -82,19 +85,25 @@
                                                                 <integer key="value" value="1"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
+                                                        <connections>
+                                                            <action selector="editingChanged:" destination="g6j-2s-YfD" eventType="editingChanged" id="Hys-oV-C3x"/>
+                                                        </connections>
                                                     </textField>
-                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKJ-e6-wN8">
+                                                    <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mKJ-e6-wN8">
                                                         <rect key="frame" x="0.0" y="140" width="315" height="50"/>
                                                         <color key="backgroundColor" red="0.054901960784313725" green="0.41960784313725491" blue="0.83529411764705885" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
                                                         <state key="normal" title="JOIN MEETING"/>
+                                                        <state key="disabled">
+                                                            <color key="titleColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
                                                         <userDefinedRuntimeAttributes>
                                                             <userDefinedRuntimeAttribute type="number" keyPath="layer.CornerRadius">
                                                                 <integer key="value" value="25"/>
                                                             </userDefinedRuntimeAttribute>
                                                         </userDefinedRuntimeAttributes>
                                                         <connections>
-                                                            <action selector="clickedBtnJoinMeeting:" destination="g6j-2s-YfD" eventType="touchUpInside" id="x9z-eC-XfO"/>
+                                                            <action selector="clickedBtnJoinMeeting:" destination="g6j-2s-YfD" eventType="touchUpInside" id="46g-m8-B14"/>
                                                         </connections>
                                                     </button>
                                                 </subviews>
@@ -137,6 +146,7 @@
                         <viewLayoutGuide key="safeArea" id="oOR-oW-bPU"/>
                     </view>
                     <connections>
+                        <outlet property="btnJoinMeeting" destination="mKJ-e6-wN8" id="a7n-cC-u8f"/>
                         <outlet property="constLogoTop" destination="CGT-Lk-5fi" id="WXO-DB-s92"/>
                         <outlet property="textFieldMeetingID" destination="zpI-sM-3w7" id="BjX-XC-Qc5"/>
                         <outlet property="textFieldUserName" destination="5Dj-pL-Y9t" id="hoR-KE-rlm"/>
@@ -542,7 +552,7 @@
                                                             </userDefinedRuntimeAttributes>
                                                         </label>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatBoxMember" translatesAutoresizingMaskIntoConstraints="NO" id="tXp-kg-nkg">
-                                                            <rect key="frame" x="40" y="10" width="295" height="49"/>
+                                                            <rect key="frame" x="40" y="10" width="295" height="49.5"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Elijah Powell" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1VS-u9-leP">
                                                             <rect key="frame" x="60" y="20" width="265" height="15"/>
@@ -554,7 +564,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I want to ask about installing chat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="N90-XX-ULK">
-                                                            <rect key="frame" x="60" y="35" width="265" height="14"/>
+                                                            <rect key="frame" x="60" y="35" width="265" height="14.5"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -590,10 +600,10 @@
                                                     <autoresizingMask key="autoresizingMask"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chatBoxUser" translatesAutoresizingMaskIntoConstraints="NO" id="tP6-CJ-gCA">
-                                                            <rect key="frame" x="10" y="10" width="335" height="49.5"/>
+                                                            <rect key="frame" x="10" y="10" width="335" height="49"/>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="I don't know about install chat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="x5t-1Z-1i1">
-                                                            <rect key="frame" x="20" y="20" width="305" height="29.5"/>
+                                                            <rect key="frame" x="20" y="20" width="305" height="29"/>
                                                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
