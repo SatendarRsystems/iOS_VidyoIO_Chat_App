@@ -160,7 +160,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
         // and set the cursor to the beginning of the text view
         if updatedText.isEmpty {
             
-            textView.text = "Placeholder"
+            textView.text = Constants.textView.placeholderText
             textView.textColor = UIColor.lightGray
             
             textView.selectedTextRange = textView.textRange(from: textView.beginningOfDocument, to: textView.beginningOfDocument)
