@@ -55,7 +55,10 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
         
         tblViewObj.rowHeight = UITableViewAutomaticDimension
         tblViewObj.estimatedRowHeight = 140
-        
+        initTextViewSend()
+    }
+    
+    func initTextViewSend() {
         txtViewSend.text = Constants.textView.placeholderText
         txtViewSend.textColor = UIColor.lightGray
         txtViewSend.selectedTextRange = txtViewSend.textRange(from: txtViewSend.beginningOfDocument, to: txtViewSend.beginningOfDocument)
@@ -83,8 +86,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
             VidyoManager.sharedInstance.sendMessage(self.txtViewSend.text)
             let chatInfo = ChatInfo(participantName: Utile.getUserName()!, chatMessage: self.txtViewSend.text, participantType: true)
             VidyoManager.arrChatMessages.append(chatInfo)
-            self.txtViewSend.text = nil
-            
+            initTextViewSend()
             self.tblViewObj.reloadData()
             self.tblViewObj.scrollToRow(at: IndexPath(row: VidyoManager.arrChatMessages.count - 1, section: 0), at: .bottom, animated: true)
         }
