@@ -57,6 +57,9 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         VidyoManager.connector?.registerMessageEventListener(self)
     }
     
+    /**
+     A method to initialize basic view of this screen.
+     */
     func initView() {
         self.lblMeetingID.text = Utile.getMeetingID()
         self.lblUserName.text = Utile.getUserName()

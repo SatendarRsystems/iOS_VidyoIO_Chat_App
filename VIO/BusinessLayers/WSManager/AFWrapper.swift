@@ -15,6 +15,9 @@ class AFWrapper {
     static let baseUrl = "https://us-central1-vidyo-1.cloudfunctions.net"
 //    static let baseUrl = "http://vod-demoserver.india.rsystems.com:7000"
     
+    /**
+     A method to get authontication headers in key-value format
+     */
     class func getoAuthHeaders() -> HTTPHeaders {
         
         let oauthHeaders: HTTPHeaders = [
@@ -24,8 +27,11 @@ class AFWrapper {
         return oauthHeaders
     }
     
-    //MARK: - Request Parent URL Method  with Status Code
+    //MARK: - Base request  URL Method
     
+    /**
+     A method to  request the API through GET or POST method
+     */
     class func requestURL(_ strURL: String ,params : [String : AnyObject]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
         
         let oauthHeaders = self.getoAuthHeaders()
@@ -51,6 +57,11 @@ class AFWrapper {
         }
     }
     
+    //MARK: - JoinMeetingVC screen API methods
+    
+    /**
+     A method to  request the access token through GET method
+     */
     class func requestGetAccessToken(params : [String : AnyObject]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
         
         let requestUrl = String.init(format: "/authToken?username=%@", Utile.getUserName()!)

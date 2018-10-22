@@ -97,6 +97,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
+    /**
+     A method to display home (ParticipantsVC) screen after successfull logout
+     */
     func loginToHomeVC() {
         UIView.transition(with: window!, duration: 0.3, options: .transitionFlipFromLeft, animations: {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)            
@@ -107,6 +110,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }, completion: nil)
     }
     
+    /**
+     A method to display JoinMeetingVC screen after successfull login
+     */
     func logoutToHomeVC() {
         UIView.transition(with: window!, duration: 0.3, options: .transitionFlipFromRight, animations: {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)

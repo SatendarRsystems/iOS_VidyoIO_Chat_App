@@ -14,13 +14,20 @@ extension UIViewController {
     
     //MARK: - Alert popups methods
 
+    /**
+     Used to display alert pop-up without delegate method
+     */
     func alert(message: String, title: String = NSLocalizedString("Vidyo", comment: "")) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default, handler: nil)
         alertController.addAction(OKAction)
         self.present(alertController, animated: true, completion: nil)
     }
-    
+
+    /*
+    /**
+     Used to display alert pop-up with delegate method
+     */
     func alertWithButtonAction(message: String, title: String = NSLocalizedString("Vidyo", comment: "")) {
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let OKAction = UIAlertAction(title: NSLocalizedString("OK", comment: ""), style: .default) {
@@ -35,4 +42,5 @@ extension UIViewController {
     func clickedBtnAlertOk() {
         //Implement this delegate method in your view controller for OK button action
     }
+    */
 }

@@ -47,6 +47,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
         }
     }
     
+    /**
+     A method to initialize basic view of this screen.
+     */
     func initView() {
         // Do any additional setup after loading the view.
         //        parentVC?.connector?.registerMessageEventListener(self)
@@ -58,6 +61,9 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
         initTextViewSend()
     }
     
+    /**
+     A method to initialize send textview of this screen.
+     */
     func initTextViewSend() {
         txtViewSend.text = Constants.textView.placeholderText
         txtViewSend.textColor = UIColor.lightGray

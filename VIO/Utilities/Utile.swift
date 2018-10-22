@@ -61,29 +61,47 @@ class Utile {
     
     //MARK: - App user data
     
+    /**
+     A method to save user name in local persistance storage
+     */
     static func saveUserName(_ userName: String?) {
         
         UserDefaults.standard.set(userName, forKey: "userName")
     }
     
+    /**
+     A method to get user name from local persistance storage
+     */
     static func getUserName() -> String? {
         return UserDefaults.standard.string(forKey: "userName")
     }
     
+    /**
+     A method to save meeting ID in local persistance storage
+     */
     static func saveMeetingID(_ meetingID: String?) {
         
         UserDefaults.standard.set(meetingID, forKey: "meetingID")
     }
     
+    /**
+     A method to get meeting ID from local persistance storage
+     */
     static func getMeetingID() -> String? {
         return UserDefaults.standard.string(forKey: "meetingID")
     }
     
+    /**
+     A method to save user accessb token in local persistance storage
+     */
     static func saveAccessToken(_ token: String?) {
         
         UserDefaults.standard.set(token, forKey: "accessToken")
     }
     
+    /**
+     A method to get user access token from local persistance storage
+     */
     static func getAccessToken() -> String? {
         return UserDefaults.standard.string(forKey: "accessToken")
     }

@@ -50,6 +50,9 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     }
     */
     
+    /**
+     A method to initialize basic view of this screen.
+     */
     func initView() {
         self.textFieldUserName.layer.borderColor = #colorLiteral(red: 0.3960784314, green: 0.3960784314, blue: 0.3960784314, alpha: 1)
         self.textFieldMeetingID.layer.borderColor = #colorLiteral(red: 0.3960784314, green: 0.3960784314, blue: 0.3960784314, alpha: 1)
@@ -89,8 +92,9 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     //MARK: - API calls
     
     /**
-     A method to get schedule data from server.
+     A method to get access token from server.
      */
+    
     private func requesGetAccessTokenData() {
         
         AFWrapper.requestGetAccessToken(params: nil, success: {
@@ -130,6 +134,10 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
         
         DispatchQueue.main.async {
             Utile.hideProgressIndicator()
+            
+            if reason.rawValue == 5 {
+                self.alert(message: "VCConnectorFailReasonInvalidToken")
+            }
         }
     }
     

@@ -22,6 +22,9 @@ class VidyoManager: NSObject {
     
     // MARK: - VidyoWrapper
     
+    /**
+     Used to create an instance of Vidyo connector
+     */
     func initVidyoConnector() {
         var videoViewMutable = self.videoView
         VidyoManager.connector = VCConnector(UnsafeMutableRawPointer(&videoViewMutable),
@@ -32,6 +35,9 @@ class VidyoManager: NSObject {
                                 userData: 0)
     }
     
+    /**
+     Used to refresh video chat screen
+     */
     @objc func refreshUI() {
         var videoViewMutable = self.videoView!
         DispatchQueue.main.async {
@@ -43,6 +49,9 @@ class VidyoManager: NSObject {
         }
     }
     
+    /**
+     Used to connect video chat meeting
+     */
     func connectMeeting(_ vc: VCConnectorIConnect) {
         VidyoManager.connector?.connect("prod.vidyo.io",
                            token: Utile.getAccessToken(),
@@ -51,35 +60,56 @@ class VidyoManager: NSObject {
                            connectorIConnect: vc)
     }
     
+    /**
+     Used to disconnect video chat meeting
+     */
     func disconnectMeeting() {
         VidyoManager.connector?.disconnect()
         VidyoManager.connector = nil
     }
     
+    /**
+     Used to disable video chat meeting
+     */
     func disableMeeting() {
         VidyoManager.connector?.disable()
         VidyoManager.connector = nil
     }
     
+    /**
+     Used to send chat message during meeting
+     */
     func sendMessage(_ textMsg: String) {
         if (!textMsg.isEmpty ) {
             VidyoManager.connector?.sendChatMessage(textMsg)
         }
     }
     
+    /**
+     Used to switch on/off mic
+     */
     func switchOffMic(_ switchValue: Bool) {
         VidyoManager.connector?.setMicrophonePrivacy(switchValue)
 
     }
     
+    /**
+     Used to switch on/off speaker
+     */
     func switchOffSpeaker(_ switchValue: Bool) {
         VidyoManager.connector?.setSpeakerPrivacy(switchValue)
     }
     
+    /**
+     Used to switch on/off camera
+     */
     func switchOffCamera(_ switchValue: Bool) {
         VidyoManager.connector?.setCameraPrivacy(switchValue)
     }
     
+    /**
+     Used to switch front/back camera
+     */
     func switchCamera() {
          VidyoManager.connector?.cycleCamera()
     }

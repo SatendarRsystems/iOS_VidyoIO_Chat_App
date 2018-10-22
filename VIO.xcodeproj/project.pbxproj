@@ -22,7 +22,6 @@
 		2DA40A66215B73C30093B97C /* ParticipantsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DA40A65215B73C30093B97C /* ParticipantsVC.swift */; };
 		2DAE7392216F726C000E7015 /* VidyoClientIOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DE060B5215E132900B8252E /* VidyoClientIOS.framework */; };
 		2DDAADD3215A3F6A00175097 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDAADD2215A3F6A00175097 /* AppDelegate.swift */; };
-		2DDAADD5215A3F6A00175097 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2DDAADD4215A3F6A00175097 /* ViewController.swift */; };
 		2DDAADD8215A3F6A00175097 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2DDAADD6215A3F6A00175097 /* Main.storyboard */; };
 		2DDAADDB215A3F6A00175097 /* VIO.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 2DDAADD9215A3F6A00175097 /* VIO.xcdatamodeld */; };
 		2DDAADDD215A3F7500175097 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2DDAADDC215A3F7500175097 /* Assets.xcassets */; };
@@ -56,7 +55,6 @@
 		2DA40A65215B73C30093B97C /* ParticipantsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsVC.swift; sourceTree = "<group>"; };
 		2DDAADCF215A3F6A00175097 /* VIO.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VIO.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2DDAADD2215A3F6A00175097 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		2DDAADD4215A3F6A00175097 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		2DDAADD7215A3F6A00175097 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		2DDAADDA215A3F6A00175097 /* VIO.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VIO.xcdatamodel; sourceTree = "<group>"; };
 		2DDAADDC215A3F7500175097 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -142,7 +140,6 @@
 				2DDAADE8215A426D00175097 /* BusinessLayers */,
 				2DDAADE7215A425800175097 /* ViewControllers */,
 				2DDAADD2215A3F6A00175097 /* AppDelegate.swift */,
-				2DDAADD4215A3F6A00175097 /* ViewController.swift */,
 				2DDAADD6215A3F6A00175097 /* Main.storyboard */,
 				2DDAADDC215A3F7500175097 /* Assets.xcassets */,
 				2DDAADDE215A3F7500175097 /* LaunchScreen.storyboard */,
@@ -377,7 +374,6 @@
 				2DDAADF0215A43C900175097 /* JoinMeetingVC.swift in Sources */,
 				2D9286C021649A3100C91884 /* ChatInfo.swift in Sources */,
 				2D74D6D121625BFF006A1F51 /* VidyoManager.swift in Sources */,
-				2DDAADD5215A3F6A00175097 /* ViewController.swift in Sources */,
 				2D04DA9E215CC9D5002E1FC0 /* ParticipantsCell.swift in Sources */,
 				2DA40A64215B55AC0093B97C /* Utile.swift in Sources */,
 				2D04DAA8215D06D9002E1FC0 /* AccessTokenBase.swift in Sources */,
