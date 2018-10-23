@@ -2,6 +2,9 @@
 //  ParticipantsVC.swift
 //  VIO
 //
+//  Summary: ParticipantsVC Component
+//  Description: Used to display meeting participant list screen.
+//
 //  Created by Arun Kumar on 26/09/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //
@@ -15,9 +18,6 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     @IBOutlet weak var lblUserName: UILabel!
     @IBOutlet weak var lblTotalMember: UILabel!
     @IBOutlet weak var tblViewObj: UITableView!
-    
-//    var arrParticipant: [VCParticipant] = []
-//    var videoVC: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -63,12 +63,6 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     func initView() {
         self.lblMeetingID.text = Utile.getMeetingID()
         self.lblUserName.text = Utile.getUserName()
-        
-        //        self.initVidyoConnector()
-        //        VidyoManager.connector?.registerParticipantEventListener(self)
-        //         VidyoManager.connector?.registerMessageEventListener(self)
-        //        self.refreshUI()
-        //        self.connectMeeting(self)
     }
     
     // MARK: - Actions

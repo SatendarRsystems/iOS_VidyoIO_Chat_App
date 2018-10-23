@@ -2,6 +2,9 @@
 //  ChatVC.swift
 //  VIO
 //
+//  Summary: ChatVC Component
+//  Description: Used to display text chat creen.
+//
 //  Created by Arun Kumar on 01/10/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //
@@ -13,10 +16,6 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
     
     @IBOutlet weak var tblViewObj: UITableView!
     @IBOutlet weak var txtViewSend: UITextView!
-//    var parentVC: ParticipantsVC!
-    
-//    var arrParticipant: [VCParticipant] = []
-//    var arrMessages: [ChatInfo] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,11 +50,7 @@ class ChatVC: UIViewController, UITableViewDelegate, UITableViewDataSource, VCCo
      A method to initialize basic view of this screen.
      */
     func initView() {
-        // Do any additional setup after loading the view.
-        //        parentVC?.connector?.registerMessageEventListener(self)
-        //        os_log("connector-------%@", log: .default, type: .default, (parentVC?.connector)!)
-        //        parentVC?.connector?.registerMessageEventListener(self)
-        
+        // Do any additional setup after loading the view.        
         tblViewObj.rowHeight = UITableViewAutomaticDimension
         tblViewObj.estimatedRowHeight = 140
         initTextViewSend()

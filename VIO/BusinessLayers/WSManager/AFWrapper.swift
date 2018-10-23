@@ -2,6 +2,9 @@
 //  AFWrapper.swift
 //  VIO
 //
+//  Summary: AFWrapper Component
+//  Description: A business layer class for API calling
+//
 //  Created by Arun Kumar on 27/09/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //

@@ -2,6 +2,9 @@
 //  AccessTokenBase.swift
 //  VIO
 //
+//  Summary: AccessTokenBase Component
+//  Description: An object model class to consume data from GetAccessToken API
+//
 //  Created by Arun Kumar on 01/10/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //

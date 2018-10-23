@@ -2,6 +2,9 @@
 //  VideoVC.swift
 //  VIO
 //
+//  Summary: VideoVC Component
+//  Description: Used to display video chat screen.
+//
 //  Created by Arun Kumar on 08/10/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //

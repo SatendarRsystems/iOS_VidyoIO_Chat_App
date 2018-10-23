@@ -2,6 +2,9 @@
 //  JoinMeetingVC.swift
 //  VIO
 //
+//  Summary: JoinMeetingVC Component
+//  Description: Used to display join meeting screen where user submit his username and meeting ID.
+//
 //  Created by Arun Kumar on 25/09/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //
@@ -14,8 +17,6 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     @IBOutlet weak var textFieldMeetingID: UITextField!
     @IBOutlet weak var constLogoTop: NSLayoutConstraint!
     @IBOutlet weak var btnJoinMeeting: UIButton!
-    
-//    var videoVC: UIViewController!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +39,6 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-    
 
     /*
     // MARK: - Navigation
@@ -93,8 +93,7 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     
     /**
      A method to get access token from server.
-     */
-    
+     */    
     private func requesGetAccessTokenData() {
         
         AFWrapper.requestGetAccessToken(params: nil, success: {

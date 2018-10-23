@@ -2,6 +2,9 @@
 //  ChatboxUserCell.swift
 //  VIO
 //
+//  Summary: ParticipantsCell Component
+//  Description: A custom view for the message wchich sent during chat.
+//
 //  Created by Arun Kumar on 01/10/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //

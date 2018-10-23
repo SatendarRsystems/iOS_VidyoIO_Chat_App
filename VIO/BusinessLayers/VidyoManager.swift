@@ -2,6 +2,10 @@
 //  VidyoManager.swift
 //  VIO
 //
+//
+//  Summary: VidyoManager Component
+//  Description: A business layer class to handle Vidyo.io SDK tasks.
+//
 //  Created by Arun Kumar on 01/10/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //

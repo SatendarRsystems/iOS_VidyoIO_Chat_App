@@ -2,6 +2,9 @@
 //  ChatboxMemberCell.swift
 //  VIO
 //
+//  Summary: ChatBoxMemberCell Component
+//  Description: A custom view for the message which received during chat.
+//
 //  Created by Arun Kumar on 01/10/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //

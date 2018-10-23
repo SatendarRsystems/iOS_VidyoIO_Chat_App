@@ -2,6 +2,9 @@
 //  Utile.swift
 //  VIO
 //
+//  Summary: Utile Component
+//  Description: Used to define all common static methods.
+//
 //  Created by Arun Kumar on 26/09/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //

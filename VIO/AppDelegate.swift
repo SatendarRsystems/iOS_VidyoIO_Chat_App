@@ -2,6 +2,9 @@
 //  AppDelegate.swift
 //  VIO
 //
+//  Summary: AppDelegate Component
+//  Description: It is a delegate class to provide application life cycle methods.
+//
 //  Created by Arun Kumar on 25/09/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //

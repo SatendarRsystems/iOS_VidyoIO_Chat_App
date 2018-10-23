@@ -2,6 +2,9 @@
 //  ParticipantsCell.swift
 //  VIO
 //
+//  Summary: ParticipantsCell Component
+//  Description: A custom view for participant's data in meeting.
+//
 //  Created by Arun Kumar on 27/09/18.
 //  Copyright © 2018 R Systems. All rights reserved.
 //
