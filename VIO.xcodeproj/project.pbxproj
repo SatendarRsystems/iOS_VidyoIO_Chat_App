@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		2D04DA9E215CC9D5002E1FC0 /* ParticipantsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DA9D215CC9D5002E1FC0 /* ParticipantsCell.swift */; };
 		2D04DAA1215CDBA2002E1FC0 /* AFWrapper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DAA0215CDBA2002E1FC0 /* AFWrapper.swift */; };
-		2D04DAA3215CE550002E1FC0 /* MyError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DAA2215CE550002E1FC0 /* MyError.swift */; };
 		2D04DAA6215CF332002E1FC0 /* UIViewControllerExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DAA5215CF332002E1FC0 /* UIViewControllerExt.swift */; };
 		2D04DAA8215D06D9002E1FC0 /* AccessTokenBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D04DAA7215D06D9002E1FC0 /* AccessTokenBase.swift */; };
 		2D74D6CD21621D66006A1F51 /* ChatboxMemberCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D74D6CC21621D66006A1F51 /* ChatboxMemberCell.swift */; };
@@ -42,7 +41,6 @@
 		13F92DA8E6C8BECBE543F202 /* Pods-VIO.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VIO.release.xcconfig"; path = "Pods/Target Support Files/Pods-VIO/Pods-VIO.release.xcconfig"; sourceTree = "<group>"; };
 		2D04DA9D215CC9D5002E1FC0 /* ParticipantsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParticipantsCell.swift; sourceTree = "<group>"; };
 		2D04DAA0215CDBA2002E1FC0 /* AFWrapper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AFWrapper.swift; sourceTree = "<group>"; };
-		2D04DAA2215CE550002E1FC0 /* MyError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyError.swift; sourceTree = "<group>"; };
 		2D04DAA5215CF332002E1FC0 /* UIViewControllerExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewControllerExt.swift; sourceTree = "<group>"; };
 		2D04DAA7215D06D9002E1FC0 /* AccessTokenBase.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AccessTokenBase.swift; sourceTree = "<group>"; };
 		2D74D6CC21621D66006A1F51 /* ChatboxMemberCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatboxMemberCell.swift; sourceTree = "<group>"; };
@@ -96,7 +94,6 @@
 			isa = PBXGroup;
 			children = (
 				2D04DAA0215CDBA2002E1FC0 /* AFWrapper.swift */,
-				2D04DAA2215CE550002E1FC0 /* MyError.swift */,
 			);
 			path = WSManager;
 			sourceTree = "<group>";
@@ -383,7 +380,6 @@
 				2D95CA44216B7FBF001EE58F /* VideoVC.swift in Sources */,
 				2D04DAA1215CDBA2002E1FC0 /* AFWrapper.swift in Sources */,
 				2D74D6CD21621D66006A1F51 /* ChatboxMemberCell.swift in Sources */,
-				2D04DAA3215CE550002E1FC0 /* MyError.swift in Sources */,
 				2DDAADD3215A3F6A00175097 /* AppDelegate.swift in Sources */,
 				2DDB1B9E21677C36002250CC /* Constants.swift in Sources */,
 			);

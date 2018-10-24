@@ -30,20 +30,6 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-/*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-        
-//        if let chatVC = segue.destination as? ChatVC {
-//            chatVC.parentVC = self
-//        }
-    }
-*/
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -107,16 +93,12 @@ class ParticipantsVC: UIViewController, UITableViewDelegate, UITableViewDataSour
     // MARK: - VCConnectorIRegisterParticipantEventListener delegate
     
     func onParticipantJoined(_ participant: VCParticipant!) {
-//        os_log("getId-------%@", log: .default, type: .default, participant.getId())
-//        os_log("getName-------%@", log: .default, type: .default, participant.getName())
-//        os_log("getUserId-------%@", log: .default, type: .default, participant.getUserId())
     }
     
     func onParticipantLeft(_ participant: VCParticipant!) {
     }
     
     func onDynamicParticipantChanged(_ participants: NSMutableArray!) {
-//        os_log("participants-------%@", log: .default, type: .default, participants)
         VidyoManager.arrParticipants = participants as! [VCParticipant]
         
         DispatchQueue.main.async {

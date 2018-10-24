@@ -108,8 +108,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             let storyboard = UIStoryboard(name: "Main", bundle: nil)            
             let nvc = storyboard.instantiateViewController(withIdentifier: "ParticipantsNVC") as! UINavigationController
             self.window?.rootViewController = nvc
-//            self.window?.backgroundColor = UIColor(red: 236.0, green: 238.0, blue: 241.0, alpha: 1.0)
-//            self.window?.makeKeyAndVisible()
         }, completion: nil)
     }
     
@@ -123,9 +121,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             self.window?.rootViewController = vc
         }, completion: nil)
     }
-    
-    
-    
-
 }
 

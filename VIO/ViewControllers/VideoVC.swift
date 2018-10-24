@@ -25,16 +25,6 @@ class VideoVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -70,12 +60,10 @@ class VideoVC: UIViewController {
         if sender.isSelected {
             sender.setImage(#imageLiteral(resourceName: "CameraOff"), for: .normal)
             VidyoManager.sharedInstance.switchOffCamera(true)
-//            self.viewVideo.isHidden = true
             
         } else {
             sender.setImage(#imageLiteral(resourceName: "CameraOn"), for: .normal)
             VidyoManager.sharedInstance.switchOffCamera(false)
-//            self.viewVideo.isHidden = false
         }
     }
     @IBAction func clickedBtnMic(_ sender: UIButton) {

@@ -39,16 +39,6 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
     
     /**
      A method to initialize basic view of this screen.
@@ -60,16 +50,11 @@ class JoinMeetingVC: UIViewController, VCConnectorIConnect {
         
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         VidyoManager.videoVC = storyboard.instantiateViewController(withIdentifier: "VideoVC") as! VideoVC
-//        os_log("videoVC-----------%@", log: OSLog.default, type: .debug, VidyoManager.videoVC)
-//        os_log("viewVideo-----------%@", log: OSLog.default, type: .debug, VidyoManager.videoVC.view.viewWithTag(101)!)
-
     }
     
     // MARK: - Actions
     
-    @IBAction func clickedBtnJoinMeeting(_ sender: Any) {
-//        os_log("-----------%d", log: OSLog.default, type: .debug, (self.textFieldUserName.text?.isEmpty)!)
-        
+    @IBAction func clickedBtnJoinMeeting(_ sender: Any) {        
         let arrUserName = self.textFieldUserName.text?.components(separatedBy: " ")
         
         if ((arrUserName?.count)! > 1) {

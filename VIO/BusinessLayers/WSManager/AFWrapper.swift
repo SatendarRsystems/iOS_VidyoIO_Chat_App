@@ -16,7 +16,6 @@ import SwiftyJSON
 
 class AFWrapper {
     static let baseUrl = "https://us-central1-vidyo-1.cloudfunctions.net"
-//    static let baseUrl = "http://vod-demoserver.india.rsystems.com:7000"
     
     /**
      A method to get authontication headers in key-value format
@@ -49,12 +48,11 @@ class AFWrapper {
             
             if responseObject.result.isSuccess {
                 let resJson = JSON(responseObject.result.value!)
-                 print("resJson: \(resJson)")
+//                 print("resJson: \(resJson)")
                 success(resJson)
             }
             else if responseObject.result.isFailure {
-//                let error : Error = MyError.customError
-                print("error: \(responseObject.result.error?.localizedDescription)")
+//                print("error: \(responseObject.result.error?.localizedDescription)")
                 failure(responseObject.result.error!)
             }
         }
@@ -68,7 +66,6 @@ class AFWrapper {
     class func requestGetAccessToken(params : [String : AnyObject]?, success:@escaping (JSON) -> Void, failure:@escaping (Error) -> Void) {
         
         let requestUrl = String.init(format: "/authToken?username=%@", Utile.getUserName()!)
-//        let requestUrl = String.init(format: "/getAccessToken?username=%@", Utile.getUserName()!)
 
         let resultStr = baseUrl + requestUrl
         
