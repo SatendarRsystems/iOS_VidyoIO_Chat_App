@@ -68,16 +68,20 @@ class VidyoManager: NSObject {
      Used to disconnect video chat meeting
      */
     func disconnectMeeting() {
-        VidyoManager.connector?.disconnect()
-        VidyoManager.connector = nil
+        DispatchQueue.main.async {
+            VidyoManager.connector?.disable()
+            VidyoManager.connector = nil
+        }
     }
     
     /**
      Used to disable video chat meeting
      */
     func disableMeeting() {
-        VidyoManager.connector?.disable()
-        VidyoManager.connector = nil
+        DispatchQueue.main.async {
+            VidyoManager.connector?.disable()
+            VidyoManager.connector = nil
+        }
     }
     
     /**
