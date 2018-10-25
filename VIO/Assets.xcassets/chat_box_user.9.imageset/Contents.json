@@ -9,8 +9,8 @@
           "height" : 1
         },
         "cap-insets" : {
-          "bottom" : 20,
-          "top" : 20,
+          "bottom" : 13,
+          "top" : 27,
           "right" : 13,
           "left" : 5
         }
